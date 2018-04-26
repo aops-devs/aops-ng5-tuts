@@ -13,11 +13,13 @@
     <form>
       <input type="text" class="txt" name="item" placeholder="Life goal.." [(ngModel)]="goalText">
       <input type="submit" class="btn" [value]="btnText" (click)="addGoal()">
+      <input type="submit" class="btn" value="Clear" (click)="clear()">
     </form>
   </div>
   <div class="col" [@goals]="goals.length">
-    <p class="life-container" *ngFor="let goal of goals">
+    <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeGoal(i)">
      {{ goal }}
     </p>
   </div>
 </div>
+<app-child [inputGoal]="goalText" (outputGoal)="showNewGoal($event)"></app-child>
