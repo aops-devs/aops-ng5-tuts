@@ -5,4 +5,9 @@
 <p>
   <a style="cursor: pointer" (click)="sendMeHome()"><strong>Go home</strong></a>
 </p>
+
+<p *ngFor="let goal of goals">
+  {{ goal }}
+</p>
+  
   
