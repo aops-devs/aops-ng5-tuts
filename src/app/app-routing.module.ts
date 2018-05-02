@@ -16,11 +16,11 @@ const routes: Routes = [
   },
   {
     path: 'my-goals',
+    component: MygoalsComponent
+  },
+  {
+    path: 'my-goals',
     children: [
-      {
-        path: ':id',
-        component: MygoalsComponent
-      },
       {
         path: ':id/details',
         component: DetailsComponent

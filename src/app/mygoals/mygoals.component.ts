@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MyGoalModel } from '../mygoal.model';
 
 @Component({
   selector: 'app-mygoals',
@@ -43,8 +44,10 @@ export class MygoalsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this._dataService.goal.subscribe(res => this.goals = res);
-    this._dataService.changeGoal(this.goals);
+    this._dataService.goal.subscribe((res: MyGoalModel[]) => {
+      this.goals = res.map(goals =>  goals.goal);
+     }
+    );
     this.itemCount = this.goals.length;
   }
 
@@ -54,8 +57,7 @@ export class MygoalsComponent implements OnInit {
   }
 
   gotoDetails(i) {
-    this.id = this.route.snapshot.params.id;
-    console.log(this.id);
+    this.id = i;
     this.router.navigate([`/my-goals/${this.id}/details`]);
   }
 
