@@ -1,40 +1,45 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { GoalDetailComponent } from './goal-detail/goal-detail.component';
+import { GoalListComponent } from './goal-list/goal-list.component';
+import { GoalPrimaryComponent } from './goal-primary/goal-primary.component';
+import { GoalSecondaryComponent } from './goal-secondary/goal-secondary.component';
 import { HomeComponent } from './home/home.component';
-import { MyGoalsComponent } from './mygoals/my-goals.component';
+import { NgModule } from '@angular/core';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { DetailsComponent } from './mygoals/details/details.component';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  // default route
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'goals', component: GoalListComponent },
   {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'my-goals',
-    component: MyGoalsComponent
-  },
-  {
-    path: 'my-goals',
+    path: 'goals/:id',
+    component: GoalDetailComponent,
     children: [
       {
-        path: ':id/details',
-        component: DetailsComponent
+        path: 'primary',
+        component: GoalPrimaryComponent
+      },
+      {
+        path: 'secondary',
+        component: GoalSecondaryComponent
       }
     ]
   },
-  {
-    path: '**',
-    component: PageNotFoundComponent
-  }
+  // wildcard route
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
+export const routingComponents = [
+  HomeComponent,
+  GoalListComponent,
+  GoalDetailComponent,
+  GoalPrimaryComponent,
+  GoalSecondaryComponent,
+  PageNotFoundComponent
+];
