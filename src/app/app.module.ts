@@ -7,18 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ChildComponent } from './home/child/child.component';
 
 import { DataService } from './data.service';
+import { MygoalsComponent } from './mygoals/mygoals.component';
+import { DetailsComponent } from './mygoals/details/details.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
-    ChildComponent
+    MygoalsComponent,
+    DetailsComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
