@@ -6,8 +6,8 @@ import { MyGoalModel } from '../mygoal.model';
 
 @Component({
   selector: 'app-mygoals',
-  templateUrl: './mygoals.component.html',
-  styleUrls: ['./mygoals.component.scss'],
+  templateUrl: './my-goals.component.html',
+  styleUrls: ['./my-goals.component.scss'],
   animations: [
 
     trigger('goals', [
@@ -31,7 +31,7 @@ import { MyGoalModel } from '../mygoal.model';
     ])
   ]
 })
-export class MygoalsComponent implements OnInit {
+export class MyGoalsComponent implements OnInit {
 
   itemCount: Number = 1;
   btnText: String = 'Add item';

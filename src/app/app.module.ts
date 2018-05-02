@@ -9,18 +9,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { DataService } from './data.service';
-import { MygoalsComponent } from './mygoals/mygoals.component';
+import { MyGoalsComponent } from './mygoals/my-goals.component';
 import { DetailsComponent } from './mygoals/details/details.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MygoalsComponent,
+    MyGoalsComponent,
     DetailsComponent,
-    PagenotfoundComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

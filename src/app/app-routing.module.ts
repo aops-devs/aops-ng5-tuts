@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { MygoalsComponent } from './mygoals/mygoals.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { MyGoalsComponent } from './mygoals/my-goals.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DetailsComponent } from './mygoals/details/details.component';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'my-goals',
-    component: MygoalsComponent
+    component: MyGoalsComponent
   },
   {
     path: 'my-goals',
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    component: PagenotfoundComponent
+    component: PageNotFoundComponent
   }
 ];
 
