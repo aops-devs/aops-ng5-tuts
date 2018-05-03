@@ -17,8 +17,8 @@
     </form>
   </div>
   <div class="col" [@goals]="goals.length">
-    <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="gotoDetails(i)">
-     {{ goal }}
+    <p class="life-container" *ngFor="let goal of goals; let i = index" (click)="gotoDetails(goal)">
+      {{ goal.goalTitle }}
     </p>
   </div>
 </div>
