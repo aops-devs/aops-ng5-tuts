@@ -1,1 +1,7 @@
-<h3>Welcome to AOPS Goals!</h3>
+<h3>Welcome to AOPS Angular 5 Tutorials!</h3>
+
+<div>
+ <span *ngFor="let portal of portals">
+    <button class="btn btn-default" (click)="goToPortal(portal.portalRoute)">{{portal.portalName}}</button>
+  </span> 
+</div>
