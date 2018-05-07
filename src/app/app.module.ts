@@ -1,9 +1,11 @@
+import { AOPSPortalService } from './shared/services/portal.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { GoalService } from './shared/services/goal.service';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 @NgModule({
@@ -12,9 +14,10 @@ import { NgModule } from '@angular/core';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  providers: [GoalService],
+  providers: [GoalService, AOPSPortalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
