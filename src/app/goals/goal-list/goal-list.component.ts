@@ -1,4 +1,7 @@
+import { GoalModel } from './../../shared/models/goal.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GoalService } from './../../shared/services/goal.service';
+import { Component, OnInit } from '@angular/core';
 import {
   animate,
   keyframes,
@@ -8,9 +11,6 @@ import {
   transition,
   trigger
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-import { GoalModel } from '../shared/models/goal.model';
-import { GoalService } from '../shared/services/goal.service';
 
 @Component({
   selector: 'app-goal-list',
@@ -66,9 +66,9 @@ import { GoalService } from '../shared/services/goal.service';
 })
 export class GoalListComponent implements OnInit {
   itemCount: Number = 1;
-  btnText: String = 'Add item';
+  btnText: String = 'Add Goal';
   goals = [];
-  goalText = 'My goal';
+  goalText = 'Oh My Goal';
   id: string;
 
   constructor(
