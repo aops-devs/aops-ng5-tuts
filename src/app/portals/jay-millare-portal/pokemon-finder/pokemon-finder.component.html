@@ -1,0 +1,17 @@
+<div>
+  <h3>Details...</h3>
+  <h5>The RESTful Pokémon API</h5>
+  <p>URL: https://pokeapi.co/</p>
+  <p>This feature enables the user to view the details of a selected Pokemon. Please use the dropdown list option.</p>
+</div>
+
+<div class="div-options">
+  <select (change)="onPokemonSelectChange($event.target.value)">
+    <option>-- choose pokemon --</option>
+    <option *ngFor="let pokemon of pokemonList; let i = index" [value]="i"> {{pokemon.name | titlecase}} </option>
+  </select>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
