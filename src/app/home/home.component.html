@@ -1,7 +1,13 @@
-<h3>Welcome to AOPS Angular 5 Tutorials!</h3>
+<h2>Welcome to AOPS Angular 5 Demo</h2>
 
-<div>
- <span *ngFor="let portal of portals">
-    <button class="btn btn-default" (click)="goToPortal(portal.portalRoute)">{{portal.portalName}}</button>
-  </span> 
-</div>
+<h3>AOPS Portals</h3>
+<span *ngFor="let portal of portals">
+  <button class="btn btn-default" (click)="goToPortal(portal.portalRoute)">{{portal.portalName}}</button>
+</span>
+
+<hr>
+
+<h3>List of Public APIs you can use for your own portal</h3>
+<p>
+  https://github.com/toddmotto/public-apis
+</p>

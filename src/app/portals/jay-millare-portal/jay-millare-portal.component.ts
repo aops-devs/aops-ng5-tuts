@@ -1,4 +1,5 @@
-import { AOPSPortalService } from './../../shared/services/portal.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { JayMillarePortalService } from './../../shared/services/jay-millare-portal.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,11 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jay-millare-portal.component.scss']
 })
 export class JayMillarePortalComponent implements OnInit {
-  portals = [];
-  constructor(private aopsPortalService: AOPSPortalService) { }
+  features = [];
+  constructor(
+    private jayMillarePortalService: JayMillarePortalService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
-    this.aopsPortalService.getPortalsUsingHTTP().subscribe(res => this.portals = res);
+    this.features = this.jayMillarePortalService.getPortalFeatures();
   }
 
+  goToFeature(url) {
+    this.router.navigate([url], { relativeTo: this.route });
+  }
 }

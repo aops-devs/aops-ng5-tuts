@@ -1,6 +1,18 @@
-<h1>Welcome to Jay Millare's portal!</h1>
 <div>
-  <span *ngFor="let portal of portals">
-    <button class="btn btn-default">{{portal.portalName}}</button>
+  <h2>Welcome to Jay Millare portal!</h2>
+  <h3>Features</h3>
+</div>
+
+<hr>
+
+<div>
+  <span *ngFor="let feature of features">
+    <button class="btn btn-primary" (click)="goToFeature(feature.featureUrl)"> {{feature.featureName}} </button>
   </span>
+</div>
+
+<hr>
+
+<div>
+  <router-outlet></router-outlet>
 </div>
