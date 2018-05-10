@@ -9,6 +9,11 @@ export class JayMillarePortalService {
       featureId: 1,
       featureName: 'Pokemon Finder',
       featureUrl: 'pokemon-finder'
+    },
+    {
+      featureId: 2,
+      featureName: 'Just a Test Page',
+      featureUrl: 'jay-test'
     }
   ];
 
@@ -20,15 +25,15 @@ export class JayMillarePortalService {
     return this.portalFeatures;
   }
 
-  // observable
+  // OBSERVABLE
   getPokemonList(): Observable<any> {
     const url = this._baseUrl + '/pokemon/?limit=802&offset=0';
     return this.http.get(url);
   }
 
-  // promise
+  // PROMISE
   getPokemons(): Promise<any> {
-    const url = this._baseUrl + '/pokemon/?limit=20&offset=0';
+    const url = this._baseUrl + '/pokemon/?limit=802&offset=0';
     return this.http.get(url).toPromise();
   }
 
