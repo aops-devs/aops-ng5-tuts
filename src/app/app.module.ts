@@ -1,3 +1,4 @@
+import { JayMillarePortalService } from './shared/services/jay-millare-portal.service';
 import { AOPSPortalService } from './shared/services/portal.service';
 import { AppComponent } from './app.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
@@ -17,7 +18,7 @@ import { NgModule } from '@angular/core';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [GoalService, AOPSPortalService],
+  providers: [GoalService, AOPSPortalService, JayMillarePortalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

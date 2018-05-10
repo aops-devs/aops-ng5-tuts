@@ -1,0 +1,53 @@
+<div>
+  <ng-container *ngIf="pokemonDetails.length === 0; else pokemonWithDetails">
+    No details...
+  </ng-container>
+  <ng-template #pokemonWithDetails>
+    <table *ngFor="let detail of pokemonDetails">
+      <tr>
+        <td>NAME:</td>
+        <td>{{detail.name}}</td>
+      </tr>
+      <tr>
+        <td>WEIGHT:</td>
+        <td>{{detail.weight}}</td>
+      </tr>
+      <tr>
+        <td>HEIGHT:</td>
+        <td>{{detail.height}}</td>
+      </tr>
+      <tr>
+        <td>ABILITIES:</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of detail.abilities">{{item.ability.name}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>TYPES:</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of detail.types">{{item.type.name}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>STATS:</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of detail.stats">{{item.stat.name}}</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>MOVES:</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of detail.moves">{{item.move.name}}</li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+  </ng-template>
+</div>

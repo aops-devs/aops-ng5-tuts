@@ -1,3 +1,6 @@
+import { JayTestComponent } from './portals/jay-millare-portal/jay-test/jay-test.component';
+import { PokemonDetailComponent } from './portals/jay-millare-portal/pokemon-detail/pokemon-detail.component';
+import { PokemonFinderComponent } from './portals/jay-millare-portal/pokemon-finder/pokemon-finder.component';
 import { JayMillarePortalComponent } from './portals/jay-millare-portal/jay-millare-portal.component';
 
 import { HomeComponent } from './home/home.component';
@@ -14,7 +17,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'goals', component: GoalListComponent },
-  { path: 'jaymillare', component: JayMillarePortalComponent },
   {
     path: 'goals/:id',
     component: GoalDetailComponent,
@@ -26,6 +28,27 @@ const routes: Routes = [
       {
         path: 'secondary',
         component: GoalSecondaryComponent
+      }
+    ]
+  },
+  // jay millare portal
+  {
+    path: 'jaymillare',
+    component: JayMillarePortalComponent,
+    children: [
+      {
+        path: 'pokemon-finder',
+        component: PokemonFinderComponent,
+        children: [
+          {
+            path: 'pokemon/:id',
+            component: PokemonDetailComponent
+          }
+        ]
+      },
+      {
+        path: 'jay-test',
+        component: JayTestComponent
       }
     ]
   },
@@ -46,5 +69,8 @@ export const routingComponents = [
   GoalSecondaryComponent,
   PageNotFoundComponent,
   // portals
-  JayMillarePortalComponent
+  JayMillarePortalComponent,
+  PokemonFinderComponent,
+  PokemonDetailComponent,
+  JayTestComponent
 ];

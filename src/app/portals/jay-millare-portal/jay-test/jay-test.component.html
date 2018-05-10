@@ -1,0 +1,29 @@
+<h3>Observables vs Promises Demo</h3>
+
+<button class="btn btn-primary" (click)="resetPageData()">Reset Page Data</button>
+
+<hr>
+
+<h4>Promises</h4>
+
+<div>
+  <button class="btn btn-primary" (click)="getPokemonsUsingPromise()" [disabled]="isPromiseReqInitiated">Initiate Request using Promise</button>
+  <p *ngIf="isPromiseReqInitiated">
+    Once you initiate request using Promise, there's no option to cancel it.
+  </p>
+  <ul>
+    <li *ngFor="let item of pokemons">{{item.name}}</li>
+  </ul>
+</div>
+
+<hr>
+
+<h4>Observables</h4>
+
+<div>
+  <button class="btn btn-primary" (click)="getPokemonsUsingObservable()" [disabled]="isObservableReqInitiated">Initiate Request using Observable</button>
+  <button class="btn btn-primary" *ngIf="isObservableReqInitiated" (click)="cancelObservableRequest()">Cancel Request Quickly</button>
+  <ul>
+    <li *ngFor="let item of pokemonList">{{item.name}}</li>
+  </ul>
+</div>
