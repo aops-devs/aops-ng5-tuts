@@ -1,3 +1,4 @@
+import { JayTestComponent } from './portals/jay-millare-portal/jay-test/jay-test.component';
 import { PokemonDetailComponent } from './portals/jay-millare-portal/pokemon-detail/pokemon-detail.component';
 import { PokemonFinderComponent } from './portals/jay-millare-portal/pokemon-finder/pokemon-finder.component';
 import { JayMillarePortalComponent } from './portals/jay-millare-portal/jay-millare-portal.component';
@@ -44,6 +45,10 @@ const routes: Routes = [
             component: PokemonDetailComponent
           }
         ]
+      },
+      {
+        path: 'jay-test',
+        component: JayTestComponent
       }
     ]
   },
@@ -66,5 +71,6 @@ export const routingComponents = [
   // portals
   JayMillarePortalComponent,
   PokemonFinderComponent,
-  PokemonDetailComponent
+  PokemonDetailComponent,
+  JayTestComponent
 ];
