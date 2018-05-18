@@ -1,3 +1,4 @@
+import { AldwinSyPortalComponent } from './portals/aldwin-sy-portal/aldwin-sy-portal.component';
 import { JayTestComponent } from './portals/jay-millare-portal/jay-test/jay-test.component';
 import { PokemonDetailComponent } from './portals/jay-millare-portal/pokemon-detail/pokemon-detail.component';
 import { PokemonFinderComponent } from './portals/jay-millare-portal/pokemon-finder/pokemon-finder.component';
@@ -51,6 +52,9 @@ const routes: Routes = [
         component: JayTestComponent
       }
     ]
+  },
+  {
+    path: 'aldwinsy', component: AldwinSyPortalComponent
   },
   // wildcard route
   { path: '**', component: PageNotFoundComponent }
