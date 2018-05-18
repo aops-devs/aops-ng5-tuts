@@ -2,7 +2,7 @@
 
 <h3>AOPS Portals</h3>
 <span *ngFor="let portal of portals">
-  <button class="btn btn-default" (click)="goToPortal(portal.portalRoute)">{{portal.portalName}}</button>
+  <button id="{{'btn-' + portal.portalRoute}}" class="btn btn-default" (click)="goToPortal(portal.portalRoute)">{{portal.portalName}}</button>
 </span>
 
 <hr>
