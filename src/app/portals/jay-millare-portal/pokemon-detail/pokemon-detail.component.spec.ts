@@ -1,6 +1,13 @@
+import { JayMillarePortalService } from './../../../shared/services/jay-millare-portal.service';
+import { RouterTestingModule } from '@angular/router/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 import { PokemonDetailComponent } from './pokemon-detail.component';
+
+class JayMillarePortalServiceMock {
+  getPokemonDetailsById() {}
+}
 
 describe('PokemonDetailComponent', () => {
   let component: PokemonDetailComponent;
@@ -8,7 +15,11 @@ describe('PokemonDetailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PokemonDetailComponent ]
+      imports: [ RouterTestingModule.withRoutes([]) ],
+      declarations: [ PokemonDetailComponent ],
+      providers: [
+        { provide: JayMillarePortalService, useClass: JayMillarePortalServiceMock }
+      ]
     })
     .compileComponents();
   }));
@@ -19,7 +30,4 @@ describe('PokemonDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });

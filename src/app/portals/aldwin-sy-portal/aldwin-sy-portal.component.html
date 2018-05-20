@@ -1,0 +1,89 @@
+<div>
+  <h2>Welcome to Aldwin Sy Portal!</h2>
+</div>
+
+<div>
+  <label style="padding: 15px" for="type">Action Type</label>
+  <select [(ngModel)]="actionType" id="type" placeholder="Select Type">
+    <option value="" disabled selected>Select your option</option>
+    <option [value]="'SIMPLE_FORM'">Simple Form</option>
+    <option [value]="'SIMPLE_CALCULATOR'">Simple Calculator</option>
+    <option [value]="'SIMPLE_TESTHOST'">Simple TestHost</option>
+  </select>
+</div>
+
+<div [ngSwitch]="actionType">
+  <div *ngSwitchCase="'SIMPLE_CALCULATOR'">
+      <h3>Simple Calculator</h3>
+      <div id="div-simple-calculator" class="container">
+        <form name="calculator">
+      
+          <input id="display" type="text" name="display" readonly>
+      
+          <input class="button digits" type="button" value="7" onclick="calculator.display.value += '7'">
+          <input class="button digits" type="button" value="8" onclick="calculator.display.value += '8'">
+          <input class="button digits" type="button" value="9" onclick="calculator.display.value += '9'">
+          <input class="button mathButtons" type="button" value="+" onclick="calculator.display.value += ' + '">
+          <br>
+          <input class="button digits" type="button" value="4" onclick="calculator.display.value += '4'">
+          <input class="button digits" type="button" value="5" onclick="calculator.display.value += '5'">
+          <input class="button digits" type="button" value="6" onclick="calculator.display.value += '6'">
+          <input class="button mathButtons" type="button" value="-" onclick="calculator.display.value += ' - '">
+          <br>
+          <input class="button digits" type="button" value="1" onclick="calculator.display.value += '1'">
+          <input class="button digits" type="button" value="2" onclick="calculator.display.value += '2'">
+          <input class="button digits" type="button" value="3" onclick="calculator.display.value += '3'">
+          <input class="button mathButtons" type="button" value="x" onclick="calculator.display.value += ' * '">
+          <br>
+          <input id="clearButton" class="button" type="button" value="C" onclick="calculator.display.value = ''">
+          <input class="button digits" type="button" value="0" onclick="calculator.display.value += '0'">
+          <input class="button mathButtons" type="button" value="=" onclick="calculator.display.value = eval(calculator.display.value)">
+          <input class="button mathButtons" type="button" value="/" onclick="calculator.display.value += ' / '">
+        </form>
+      </div>
+  </div>
+    
+  <div *ngSwitchCase="'SIMPLE_FORM'">
+    <div>
+      <h3>Simple Form</h3>
+      <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate  class="div-form">
+        <div class="form-group">
+          <div class="center-block">
+            <label>Name: 
+              <input id="input-name" (focus)="inputFocus('name')" class="form-control" formControlName="name">
+            </label>
+            <span *ngIf="showName">First Name Only</span>
+          </div>
+          <div class="center-block">
+            <label>Email: 
+                <input id="input-email" (focus)="inputFocus('email')" class="form-control" formControlName="email">
+            </label>
+            <span *ngIf="showEmail">aaa@bbb.com</span>
+          </div>
+          <div class="center-block">
+            <label>Number: 
+                <input id="input-number" (focus)="inputFocus('number')" class="form-control" formControlName="number">
+            </label>
+            <span *ngIf="showNumber">11 Digits</span>
+          </div>
+        </div>
+          <button id="save-btn" type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Save</button>
+      </form>
+    </div>
+    <div>
+        <button id="contact-btn" class="btn btn-contact" (click)="getContacts()">GET CONTACTS</button>
+        <button id="clear-btn" class="btn btn-contact" (click)="clearContacts()">CLEAR</button>
+    </div>
+    <div class="col">
+      <p class="contact-container" *ngFor="let contact of contactList; let i = index">
+        {{ contact.name }} - {{ contact.email }} - {{ contact.number }}
+      </p>
+    </div>
+  </div>
+  
+  <div *ngSwitchCase="'SIMPLE_TESTHOST'">
+    <app-test-host [contact]="contact" (returnToForm)="returnToForm($event)"></app-test-host>
+  </div>
+</div>
+
+

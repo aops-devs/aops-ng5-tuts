@@ -1,0 +1,40 @@
+<h1>Input Contact</h1>
+
+<table>
+  <tr>
+    <td>NAME:</td>
+    <td id="td-input-name">{{contact.name}}</td>
+  </tr>
+  <tr>
+    <td>EMAIL:</td>
+    <td id="td-input-email">{{contact.email}}</td>
+  </tr>
+  <tr>
+    <td>NUMBER:</td>
+    <td id="td-input-number">{{contact.number}}</td>
+  </tr>
+</table>
+
+<h1>Other Contacts</h1>
+
+<table *ngFor="let detail of contactList; index as i">
+  <tr>
+    <td>NAME:</td>
+    <td>{{detail.name}}</td>
+  </tr>
+  <button id="{{'show-' + detail.id}}" *ngIf="!detail.showDetails" (click)="showDetails(i)">Show Details</button>
+  <tr *ngIf="detail.showDetails">
+    <td>EMAIL:</td>
+    <td> {{detail.email}}</td>
+  </tr>
+  <tr *ngIf="detail.showDetails">
+    <td>NUMBER:</td>
+    <td> {{detail.number}}</td>
+  </tr>
+  <button id="{{'hide-' + detail.id}}" *ngIf="detail.showDetails" (click)="hideDetails(i)">Hide Details</button>
+</table>
+
+<div style="padding: 20px">
+  <button id="return-button" (click)="callReturnToForm()">RETURN TO FORM</button>
+</div>
+
